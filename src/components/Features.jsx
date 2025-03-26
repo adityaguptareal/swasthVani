@@ -59,14 +59,14 @@ const Features = () => {
           viewport={{ once: true }}
           >
           <motion.h2
-            className="text-3xl md:text-4xl font-bold text-text-blue font-montserrat mb-4"
+            className="text-3xl md:text4x-xl font-bold text-text-blue font-montserrat mb-4"
             variants={itemVariants}
             >
             Advanced AI Technology
             <span className="text-grey block">for Your Healthcare Needs</span>
           </motion.h2>
           <motion.p
-            className="text-md text-grey font-poppins max-w-[580px] mx-auto"
+            className="text-y font-poppins max-w-[580px] mx-auto"
             variants={itemVariants}
           >
             Discover how our AI-powered platform revolutionizes healthcare delivery and patient care.

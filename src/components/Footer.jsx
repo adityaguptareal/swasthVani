@@ -22,9 +22,9 @@ const Footer = () => {
   return (
     <footer className="bg-white py-12 border-t">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           {/* Company Info */}
-          <div className="col-span-2">
+          <div className="col-span-1  lg:col-span-2">
             <h2 className="text-2xl font-bold text-text-blue font-montserrat mb-2">SwasthVani</h2>
             <p className="text-grey font-poppins mb-6 text-sm max-w-[350px] ">
               Revolutionizing healthcare with AI technology to provide accessible, accurate, and immediate health insights for everyone.
@@ -35,7 +35,7 @@ const Footer = () => {
           </div>
 
           {/* Quick Links */}
-          <div className="col-span-1">
+          <div className="col-span-1 lg:col-span-1">
             <h3 className="text-lg font-semibold text-gray-800 font-montserrat mb-4">Quick Links</h3>
             <ul className="space-y-2  text-sm">
               {quickLinks.map((link, index) => (
@@ -52,7 +52,7 @@ const Footer = () => {
           </div>
 
           {/* Support */}
-          <div className="col-span-1">
+          <div className="col-span-1  lg:col-span-1">
             <h3 className="text-lg font-semibold text-gray-800 font-montserrat mb-4">Support</h3>
             <ul className="space-y-2  text-sm">
               {supportLinks.map((link, index) => (

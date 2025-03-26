@@ -51,7 +51,7 @@ const Hero = () => {
             personalized medical guidance and support 24/7.
           </motion.p>
           <motion.div
-            className="flex justify-center gap-4"
+            className="flex flex-col md:flex-row justify-center gap-4"
             variants={itemVariants}
           >
             <Button size="large">
