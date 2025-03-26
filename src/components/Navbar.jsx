@@ -1,0 +1,136 @@
+import { useState } from 'react';
+import Button from './Button';
+import { ChevronRight } from 'lucide-react';
+
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  return (
+    <nav className="bg-white shadow-md">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between h-16 items-center">
+          {/* Logo */}
+          <div className="flex-shrink-0 flex items-center">
+            <a href="/" className="text-2xl font-bold font-poppins text-primary font-p">
+              SwasthVani
+            </a>
+          </div>
+
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-8">
+            <a href="/" className="text-gray-600 font-inter hover:text-primary hover:underline hover:pb-1 transition-all">
+              Home
+            </a>
+            <a href="/ai-health-check" className="text-gray-600 font-inter hover:text-primary hover:underline hover:pb-1 transition-all">
+              AI Health Check
+            </a>
+            <a href="/consult" className="text-gray-600 font-inter hover:text-primary hover:underline hover:pb-1 transition-all">
+              Consult a Doctor
+            </a>
+            <a href="/emergency" className="text-gray-600 font-inter hover:text-primary hover:underline hover:pb-1 transition-all">
+              Emergency SOS
+            </a>
+          </div>
+
+          {/* Auth Buttons */}
+          <div className="hidden md:flex items-center space-x-4">
+           <a href="http://#" className='text-primary font-medium'>
+              Login
+           </a>
+
+            <Button size="medium">
+              Register  <ChevronRight size={15} />
+            </Button>
+          </div>
+
+          {/* Mobile menu button */}
+          <div className="md:hidden flex items-center">
+            <button
+              onClick={toggleMenu}
+              className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-primary hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary"
+            >
+              <span className="sr-only">Open main menu</span>
+              {!isOpen ? (
+                <svg
+                  className="block h-6 w-6"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                </svg>
+              ) : (
+                <svg
+                  className="block h-6 w-6"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              )}
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Navigation */}
+        {isOpen && (
+          <div className="md:hidden">
+            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+              <a
+                href="/"
+                className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 font-inter hover:text-primary hover:bg-gray-100"
+              >
+                Home
+              </a>
+              <a
+                href="/ai-health-check"
+                className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 font-inter hover:text-primary hover:bg-gray-100"
+              >
+                AI Health Check
+              </a>
+              <a
+                href="/consult"
+                className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 font-inter hover:text-primary hover:bg-gray-100"
+              >
+                Consult a Doctor
+              </a>
+              <a
+                href="/emergency"
+                className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 font-inter hover:text-primary hover:bg-gray-100"
+              >
+                Emergency SOS
+              </a>
+              <div className="mt-4 space-y-2">
+                <Button variant="outline" size="small" className="w-full">
+                  Login
+                </Button>
+                <Button size="medium" className="w-full">
+                  Register  <ChevronRight size={15} />
+                </Button>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+    </nav>
+  );
+};
+
+export default Navbar;
