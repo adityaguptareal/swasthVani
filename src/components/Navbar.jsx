@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Button from './Button';
+import { Link,useNavigate } from 'react-router-dom';
 import { ChevronRight } from 'lucide-react';
 
 const Navbar = () => {
@@ -10,40 +11,40 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-white shadow-md">
+    <nav className="bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-24 items-center">
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
-            <a href="/" className="text-2xl font-bold font-poppins text-primary font-p">
+            <Link to="/" className="text-2xl font-bold font-poppins text-primary font-p">
               SwasthVani
-            </a>
+           </Link>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8">
-            <a href="/" className="text-gray-600 font-inter hover:text-primary hover:underline hover:pb-1 transition-all">
+            <Link to="/" className="text-gray-600 font-inter hover:text-primary hover:underline hover:pb-1 transition-all">
               Home
-            </a>
-            <a href="/ai-health-check" className="text-gray-600 font-inter hover:text-primary hover:underline hover:pb-1 transition-all">
-              AI Health Check
-            </a>
-            <a href="/consult" className="text-gray-600 font-inter hover:text-primary hover:underline hover:pb-1 transition-all">
-              Consult a Doctor
-            </a>
-            <a href="/emergency" className="text-gray-600 font-inter hover:text-primary hover:underline hover:pb-1 transition-all">
+           </Link>
+            <Link to="/about" className="text-gray-600 font-inter hover:text-primary hover:underline hover:pb-1 transition-all">
+              About us
+           </Link>
+            <Link to="/contact" className="text-gray-600 font-inter hover:text-primary hover:underline hover:pb-1 transition-all">
+             Contact us
+           </Link>
+            <Link to="/emergency" className="text-gray-600 font-inter hover:text-primary hover:underline hover:pb-1 transition-all">
               Emergency SOS
-            </a>
+           </Link>
           </div>
 
           {/* Auth Buttons */}
           <div className="hidden lg:flex items-center space-x-4">
-           <a href="http://#" className='text-primary font-medium'>
+           <Link to="/login" className='text-primary font-medium'>
               Login
-           </a>
+          </Link>
 
             <Button size="medium">
-              Register  <ChevronRight size={15} />
+             <Link className='flex justify-center items-center' to={"/signup"}> Register  <ChevronRight size={15} /></Link>
             </Button>
           </div>
 
@@ -93,36 +94,32 @@ const Navbar = () => {
         {isOpen && (
           <div className="lg:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-              <a
-                href="/"
+              <Link to="/"
                 className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 font-inter hover:text-primary hover:bg-gray-100"
               >
                 Home
-              </a>
-              <a
-                href="/ai-health-check"
+             </Link>
+              <Link to="/about"
                 className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 font-inter hover:text-primary hover:bg-gray-100"
               >
-                AI Health Check
-              </a>
-              <a
-                href="/consult"
+               About us
+             </Link>
+              <Link to="/contact"
                 className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 font-inter hover:text-primary hover:bg-gray-100"
               >
-                Consult a Doctor
-              </a>
-              <a
-                href="/emergency"
+              Contact us
+             </Link>
+              <Link to="/emergency"
                 className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 font-inter hover:text-primary hover:bg-gray-100"
               >
                 Emergency SOS
-              </a>
+             </Link>
               <div className="mt-4 space-y-2">
                 <Button variant="outline" size="small" className="w-full">
                   Login
                 </Button>
                 <Button size="medium" className="w-full">
-                  Register  <ChevronRight size={15} />
+                  <Link to={'/signup'}>Register  <ChevronRight size={15} /></Link>
                 </Button>
               </div>
             </div>
