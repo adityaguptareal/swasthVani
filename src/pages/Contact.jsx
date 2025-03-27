@@ -36,7 +36,7 @@ function Contact() {
       toast.success("Form submitted successfully");
       setFormData({name:"",email:"",message:""});
       setLoading(false);
-      console.log(data);
+
       return;
     }
 

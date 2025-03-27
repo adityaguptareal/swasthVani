@@ -17,7 +17,7 @@ const gettingUser=async()=>{
   const {data:{user}}=await supabase.auth.getUser();
   if(user){
     navigate('/dashboard');
-    console.log('logged in',user);
+    r;
   }else{
     return
   }
@@ -41,7 +41,6 @@ const gettingUser=async()=>{
       setLoading(false);
       toast.success("Login successful");
       navigate("/dashboard");
-      console.log("User Logged In:", data);
       setEmail("");
       setPassword("");
       return;

@@ -27,9 +27,7 @@ const Hero = () => {
     },
   };
 
-  const handleAnimationComplete = () => {
-    console.log('All letters have animated!');
-  };
+
 
   return (
     <section className="bg-gradient-to-b from-white to-gray-50 py-10">

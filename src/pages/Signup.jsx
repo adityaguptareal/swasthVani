@@ -32,29 +32,12 @@ const Signup = () => {
       setLoading(false);
       toast.success("Signed Up successfully");
       toast("Please Confirm Your Email", { icon: "📧", duration: 8000 });
-      console.log("User Signed Up:", data);
       setEmail("");
       setPassword("");
       navigate("/login");
     }
   };
 
-  // // 🔹 Google Sign-In
-  // const handleGoogleSignIn = async () => {
-  //   const { error } = await supabase.auth.signInWithOAuth({
-  //     provider: "google",
-  //   });
-
-  //   if (error) console.error("Google Sign-In Error:", error.message);
-  // };
-
-  // // 🔹 Phone OTP Sign-Up
-  // const handlePhoneSignup = async () => {
-  //   const { error } = await supabase.auth.signInWithOtp({ phone });
-
-  //   if (error) console.error("Phone Signup Error:", error.message);
-  //   else console.log("OTP Sent!");
-  // };
 
   return (
     <div className="h-screen overflow-hidden bg-background w-full flex flex-col md:flex-row justify-start md:justify-center gap-20 ">
