@@ -32,11 +32,13 @@ function App() {
         <Route index element={<Home/>}/>
         <Route path="/about" element={<About/>}/>
         <Route path="/contact" element={<ContactForm/>}/>
-        <Route path="/signup" element={<Signup/>}/>
-        <Route path="/login" element={<Login/>}/>
         </Route>
         </Routes>
+
+        {/* Without Outlet */}
         <Routes>
+        <Route path="/signup" element={<Signup/>}/>
+        <Route path="/login" element={<Login/>}/>
         <Route path="/dashboard" element={<Dashboard/>}/>
         </Routes>
       </BrowserRouter>
