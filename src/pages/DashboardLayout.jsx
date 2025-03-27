@@ -49,7 +49,7 @@ const Dashboard = () => {
   if (!user) return (<p className="text-center">Loading...</p>);
 
   return (
-    <div className="flex">
+    <div className="flex bg-background">
       <Sidebar />
       <main className="flex-1 p-4">
         <div>Hello {userName || "user"}</div>

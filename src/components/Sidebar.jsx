@@ -45,7 +45,7 @@ const Sidebar = () => {
   const isActive = (path) => location.pathname === path;
   return (
     <div
-      className={`h-screen bg-background text-grey transition-all px-2 duration-300 ${
+      className={`h-screen bg-background text-grey transition-all px-2 duration-300 shadow-lg ${
         isOpen ? "w-64" : "w-16"
       }`}
     >
