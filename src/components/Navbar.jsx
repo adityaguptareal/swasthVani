@@ -16,7 +16,7 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
             <Link to="/" className="text-2xl font-bold font-poppins text-primary font-p">
-              SwasthVani
+              {import.meta.env.VITE_APP_NAME || "SwasthVani"}
            </Link>
           </div>
 

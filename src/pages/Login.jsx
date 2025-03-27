@@ -65,7 +65,7 @@ const gettingUser=async()=>{
             </div>
             <div className="relative z-10 text-center text-white px-6">
               <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                Welcome to SwasthVani
+                Welcome to {import.meta.env.VITE_APP_NAME ||"SwasthVani"}
               </h1>
               <p className="text-lg md:text-xl mb-6">
                 Seamless healthcare access, just a click away!
@@ -90,7 +90,7 @@ const gettingUser=async()=>{
           >
             <div className=" p-8 rounded-lg  w-full ">
               <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
-                Login to SwasthVani
+                Login to {import.meta.env.VITE_APP_NAME ||"SwasthVani"}
               </h2>
               <form>
                 <div className="mb-4">

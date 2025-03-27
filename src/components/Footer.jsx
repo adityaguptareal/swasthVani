@@ -25,7 +25,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="col-span-1  lg:col-span-2">
-            <h2 className="text-2xl font-bold text-text-blue font-montserrat mb-2">SwasthVani</h2>
+            <h2 className="text-2xl font-bold text-text-blue font-montserrat mb-2">{import.meta.env.VITE_APP_NAME ||"SwasthVani"}</h2>
             <p className="text-grey font-poppins mb-6 text-sm max-w-[350px] ">
               Revolutionizing healthcare with AI technology to provide accessible, accurate, and immediate health insights for everyone.
             </p>
@@ -72,8 +72,9 @@ const Footer = () => {
         </div>
       </div>
           <div className="w-full  mt-20">
+            
             <div className="text-grey font-poppins text-sm flex flex-col justify-center items-center">
-              <p className="mb-2 text-center">© 2025 SwasthVani. All rights reserved.</p>
+              <p className="mb-2 text-center">{`© ${new Date().getFullYear()} ${import.meta.env.VITE_APP_NAME ||"SwasthVani"}. All rights reserved.`}</p>
               <p className="flex items-center">
                 Design and Dweveloped by <span className="text-text-blue mx-1">Aditya Kumar</span> 
               </p>

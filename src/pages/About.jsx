@@ -72,7 +72,7 @@ const About = () => {
             Our Mission
           </h2>
           <p className="text-gray-600 leading-relaxed">
-            At SwasthVani, our mission is to revolutionize healthcare by
+            At {import.meta.env.VITE_APP_NAME ||"SwasthVani"}, our mission is to revolutionize healthcare by
             leveraging technology to provide accessible, efficient, and
             personalized medical solutions. We believe in empowering patients
             and healthcare professionals with tools that make a difference.
