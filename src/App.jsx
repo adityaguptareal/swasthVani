@@ -8,24 +8,22 @@ import About from "./pages/About";
 import ContactForm from "./pages/Contact";
 import { Toaster } from "react-hot-toast";
 import Signup from "./pages/Signup";
-import Dashboard from "./pages/Dashboard";
+import DashboardLayout from "./pages/DashboardLayout";
 import Login from "./pages/Login";
-// import Navbar from "./components/Navbar";
-// import Hero from "./components/Hero";
-// import Features from "./components/Features";
-// import Experience from "./components/Experience";
-// import Testimonial from "./components/Testimonial";
-// import Footer from "./components/Footer";
+import UserDashboard from "./pages/UserDashboard";
+import HealthAnalyzer from "./pages/HealthAnalyzer";
+import WoundScanner from "./pages/WoundScanner";
+import VoiceAssistant from "./pages/VoiceAssistant";
+import FindClinic from "./pages/FindClinic";
+import DoctorConnect from "./pages/DoctorConnect";
+import AiSosAssistant from "./pages/AiSosAssistant";
+import EmergencyContacts from "./pages/EmergencyContacts";
+
 
 function App() {
   return (
     <>
-      {/* <Navbar />
-      <Hero />
-      <Features />
-      <Experience />
-      <Testimonial />
-      <Footer /> */}
+     
       <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout/>}>
@@ -33,13 +31,20 @@ function App() {
         <Route path="/about" element={<About/>}/>
         <Route path="/contact" element={<ContactForm/>}/>
         </Route>
-        </Routes>
-
-        {/* Without Outlet */}
-        <Routes>
+        {/* without nav & footer */}
         <Route path="/signup" element={<Signup/>}/>
         <Route path="/login" element={<Login/>}/>
-        <Route path="/dashboard" element={<Dashboard/>}/>
+        <Route path="/dashboard" element={<DashboardLayout/>}>
+        <Route index element={<UserDashboard />} />
+          <Route path="symptoms" element={<HealthAnalyzer />} />
+          <Route path="scan" element={<WoundScanner />} />
+          <Route path="voice" element={<VoiceAssistant />} />
+          <Route path="appointments" element={<FindClinic />} />
+          <Route path="help" element={<DoctorConnect />} />
+          <Route path="sos" element={<AiSosAssistant />} />
+          <Route path="contacts" element={<EmergencyContacts />} />
+        </Route>
+        <Route path="*" element={<div>404</div>} />
         </Routes>
       </BrowserRouter>
       <Toaster />
