@@ -52,7 +52,9 @@ const Sidebar = () => {
       {/* Sidebar Header */}
       <div className="p-4 flex justify-between items-center">
         {isOpen && (
-          <h2 className="text-xl font-bold text-text-blue">{import.meta.env.VITE_APP_NAME||SwatshVani}</h2>
+          <h2 className="text-xl font-bold text-text-blue">
+            {import.meta.env.VITE_APP_NAME || "SwatshVani"}
+          </h2>
         )}
         <button onClick={() => setIsOpen(!isOpen)} className="text-text-blue">
           {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -64,17 +66,19 @@ const Sidebar = () => {
         <ul className="flex flex-col gap-2">
           {menuItems.map((item) => (
             <li key={item.name}>
-              <Link
-                to={item.path}
-                className={`flex items-center gap-4 px-4 py-2 rounded-md transition ${
-                  isActive(item.path)
-                    ? "bg-primary text-white"
-                    : "hover:bg-blue-100"
-                }`}
-              >
-                {item.icon}
-                {isOpen && <span>{item.name}</span>}
-              </Link>
+              <div className="group">
+                <Link
+                  to={item.path}
+                  className={`flex items-center gap-4 px-4 py-2 rounded-md transition ${
+                    isActive(item.path)
+                      ? "bg-primary text-white"
+                      : "hover:bg-blue-100"
+                  }`}
+                >
+                  {item.icon}
+                  {isOpen && <span>{item.name}</span>}
+                </Link>
+              </div>
             </li>
           ))}
           <li
@@ -91,7 +95,8 @@ const Sidebar = () => {
               isActive("/") ? "bg-primary text-white" : "hover:bg-blue-100"
             }`}
           >
-            <LogOut /> Logout
+            <LogOut />
+            {isOpen && <span>Logout</span>}
           </li>
         </ul>
       </nav>
