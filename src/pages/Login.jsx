@@ -1,4 +1,4 @@
-import { React, use, useState } from "react";
+import { React, use, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import toast from "react-hot-toast";
@@ -9,6 +9,19 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  useEffect(()=>{
+    gettingUser()
+  },[])
+
+const gettingUser=async()=>{
+  const {data:{user}}=await supabase.auth.getUser();
+  if(user){
+    navigate('/dashboard');
+    console.log('logged in',user);
+  }else{
+    return
+  }
+}
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -33,6 +46,8 @@ function Login() {
       setPassword("");
       return;
     }
+
+  
   };
 
   return (
