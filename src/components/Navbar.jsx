@@ -5,13 +5,12 @@ import { ChevronRight } from 'lucide-react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
   return (
-    <nav className="bg-background">
+    <nav className={`bg-background`} >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-24 items-center">
           {/* Logo */}
@@ -93,7 +92,7 @@ const Navbar = () => {
         {/* Mobile Navigation */}
         {isOpen && (
           <div className="lg:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3  z-10 top-0">
               <Link to="/"
                 className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 font-inter hover:text-primary hover:bg-gray-100"
               >
@@ -115,11 +114,11 @@ const Navbar = () => {
                 Emergency SOS
              </Link>
               <div className="mt-4 space-y-2">
-                <Button variant="outline" size="small" className="w-full">
+                <Button variant="outline" size="small" className="w-full ">
                   Login
                 </Button>
-                <Button size="medium" className="w-full">
-                  <Link to={'/signup'}>Register  <ChevronRight size={15} /></Link>
+                <Button size="medium" className="w-full py-3">
+                  <Link to={'/signup'} className='flex justify-center items-center'>Register  <ChevronRight size={15} /></Link>
                 </Button>
               </div>
             </div>
