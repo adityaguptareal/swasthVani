@@ -3,15 +3,7 @@ import { Outlet, useNavigate } from "react-router-dom";
 import supabase from "../supabaseClient";
 import { toast } from "react-hot-toast";
 import Sidebar from "../components/Sidebar";
-// import { Sidebar } from "../components/Rough";
-// import { FaHome } from 'react-icons/fa';
-// import { MdGroupAdd } from 'react-icons/md';
-// import { RiContractLine } from 'react-icons/ri';
-// import { BiSolidReport } from 'react-icons/bi';
-// import { SiGoogleads } from 'react-icons/si';
-// import { PiProjectorScreenChartDuotone } from 'react-icons/pi'
 
-// import { Sidebar, SidebarItem } from "../components/Rough";
 
 const Dashboard = () => {
   const [user, setUser] = useState(null);
