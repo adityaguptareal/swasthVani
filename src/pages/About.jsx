@@ -1,86 +1,74 @@
-import React from "react";
 import { motion } from "framer-motion";
+import { PhoneCall, HeartPulse, Mic, AlertTriangle, Camera, CalendarCheck } from "lucide-react";
 
-const About = () => {
+const features = [
+  { name: "Health Analyzer", description: "AI-powered symptom checker.", icon: <HeartPulse /> },
+  { name: "Wound Scanner", description: "Detects wounds using camera AI.", icon: <Camera /> },
+  { name: "Voice Assistant", description: "Hands-free health assistant.", icon: <Mic /> },
+  { name: "Emergency SOS", description: "AI call assistant & report sharing.", icon: <AlertTriangle /> },
+  { name: "Appointment Booking", description: "Find & book nearby clinics.", icon: <CalendarCheck /> },
+  { name: "Emergency Contacts", description: "Quick access to emergency numbers.", icon: <PhoneCall /> },
+];
+
+export default function About() {
   return (
-    <div className="bg-gradient-to-b from-blue-50 to-blue-100 min-h-screen p-6">
-      <div className="container mx-auto">
-        {/* Header Section */}
-        <motion.div
-          className="text-center mb-12"
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <h1 className="text-4xl font-bold text-blue-800 mb-4">
-            About Us
-          </h1>
-          <p className="text-lg text-gray-600">
-            We are dedicated to providing innovative healthcare solutions to improve lives.
-          </p>
-        </motion.div>
-
-        {/* Team Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {[
-            {
-              name: "Dr. Sarah Johnson",
-              role: "Cardiologist",
-              image: "https://source.unsplash.com/300x300/?doctor",
-            },
-            {
-              name: "Dr. Michael Lee",
-              role: "Neurologist",
-              image: "https://source.unsplash.com/300x300/?medical",
-            },
-            {
-              name: "Dr. Emily Davis",
-              role: "Pediatrician",
-              image: "https://source.unsplash.com/300x300/?healthcare",
-            },
-          ].map((member, index) => (
-            <motion.div
-              key={index}
-              className="bg-white rounded-lg shadow-lg p-6 text-center hover:shadow-xl transition-shadow duration-300"
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
-            >
-              <img
-                src={member.image}
-                alt={member.name}
-                className="w-24 h-24 rounded-full mx-auto mb-4 object-cover"
-              />
-              <h3 className="text-xl font-semibold text-blue-800">
-                {member.name}
-              </h3>
-              <p className="text-gray-500">{member.role}</p>
-            </motion.div>
-          ))}
+    <div className="min-h-screen bg-gray-100 text-gray-800">
+      {/* Hero Section */}
+      <div className="relative">
+        <img
+          src="https://images.unsplash.com/photo-1590416987174-07c40dd1bc29?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTA5fHxoZWFsdGhjYXJlJTIwYXBwfGVufDB8fDB8fHwy"
+          alt="Health App"
+          className="w-full h-[400px] object-cover opacity-70"
+        />
+        <div className="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-70 text-white">
+          <motion.h1 initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}
+            className="text-4xl font-bold mb-2">
+            Your AI-Powered Health Companion
+          </motion.h1>
+          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.5 }}
+            className="text-lg">
+            Get quick, reliable, and AI-driven health support anytime, anywhere.
+          </motion.p>
         </div>
+      </div>
 
-        {/* Mission Section */}
-        <motion.div
-          className="mt-16 bg-white rounded-lg shadow-lg p-8"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
-          <h2 className="text-2xl font-bold text-blue-800 mb-4">
-            Our Mission
-          </h2>
-          <p className="text-gray-600 leading-relaxed">
-            At {import.meta.env.VITE_APP_NAME ||"SwasthVani"}, our mission is to revolutionize healthcare by
-            leveraging technology to provide accessible, efficient, and
-            personalized medical solutions. We believe in empowering patients
-            and healthcare professionals with tools that make a difference.
-          </p>
-        </motion.div>
+      {/* How It Helps Section */}
+      <div className="max-w-6xl mx-auto px-6 py-12 text-center">
+        <h2 className="text-3xl font-semibold mb-4">How Our App Helps</h2>
+        <p className="text-lg text-gray-600">
+          Our AI-based healthcare assistant provides instant symptom analysis, emergency support, and seamless doctor appointments, 
+          ensuring you get timely care when needed.
+        </p>
+      </div>
+
+      {/* Features Section */}
+      <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-6 pb-12">
+        {features.map((feature, index) => (
+          <motion.div
+            key={index}
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.5, delay: index * 0.2 }}
+            className="bg-white shadow-lg rounded-lg p-6 flex flex-col items-center"
+          >
+            <div className="text-blue-500 text-4xl mb-4">{feature.icon}</div>
+            <h3 className="text-xl font-semibold mb-2">{feature.name}</h3>
+            <p className="text-gray-600 text-center">{feature.description}</p>
+          </motion.div>
+        ))}
+      </div>
+
+      {/* Contact Section */}
+      <div className="bg-blue-600 text-white py-12">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl font-semibold mb-2">Get in Touch</h2>
+          <p className="text-lg mb-6">Have questions or need help? Contact us anytime.</p>
+          <a href="mailto:support@healthapp.com"
+            className="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-200">
+            Contact Support
+          </a>
+        </div>
       </div>
     </div>
   );
-};
-
-export default About;
+}
