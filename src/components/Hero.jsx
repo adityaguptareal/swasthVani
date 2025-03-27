@@ -4,6 +4,7 @@ import Piles from "./Piles";
 import Stats from "./Stats";
 import { ArrowRight, CircleCheckBig } from "lucide-react";
 
+
 const Hero = () => {
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -26,9 +27,13 @@ const Hero = () => {
     },
   };
 
+  const handleAnimationComplete = () => {
+    console.log('All letters have animated!');
+  };
+
   return (
     <section className="bg-gradient-to-b from-white to-gray-50 py-10">
-      <motion.div
+   <motion.div
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
         variants={containerVariants}
         initial="hidden"
