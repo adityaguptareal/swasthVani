@@ -18,6 +18,7 @@ import FindClinic from "./pages/FindClinic";
 import DoctorConnect from "./pages/DoctorConnect";
 import AiSosAssistant from "./pages/AiSosAssistant";
 import EmergencyContacts from "./pages/EmergencyContacts";
+import AppointmentsList from "./pages/AppointmentsList";
 
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
           <Route path="help" element={<DoctorConnect />} />
           <Route path="sos" element={<AiSosAssistant />} />
           <Route path="contacts" element={<EmergencyContacts />} />
+          <Route path="my" element={<AppointmentsList />} />
         </Route>
         <Route path="*" element={<div>404</div>} />
         </Routes>
