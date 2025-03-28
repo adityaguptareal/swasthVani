@@ -36,7 +36,7 @@ const DoctorsList = () => {
             <p className="text-gray-500">Fees: ₹{doctor.fees}</p>
             <button
               onClick={() => setSelectedDoctor(doctor)}
-              className="mt-3 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+              className="mt-3  text-primary bg-blue-100 hover:text-white px-4 py-2 rounded hover:bg-blue-600"
             >
               Book Appointment
             </button>
