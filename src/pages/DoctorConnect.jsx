@@ -18,14 +18,12 @@ function DoctorConnect() {
           <DoctorsList />
         </section>
         <aside className="bg-white p-6 rounded-lg shadow-lg">
-          <h2 className="text-xl font-semibold font-poppins text-blue-600 mb-4 text-center">
-            Your Booked Appointments
+          <h2 className="text-xl md:text-2xl font-semibold font-poppins text-primary bg-blue-100 py-2 rounded-lg mb-4 text-center">
+            Booked Appointments
           </h2>
           <AppointmentsList/>
           <div className="p-4 bg-gray-50 rounded-lg">
-            <p className="text-center text-gray-600">
-              You currently have no booked appointments.
-            </p>
+          
           </div>
         </aside>
       </main>
