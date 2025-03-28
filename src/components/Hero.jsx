@@ -3,9 +3,11 @@ import Button from "./Button";
 import Piles from "./Piles";
 import Stats from "./Stats";
 import { ArrowRight, CircleCheckBig } from "lucide-react";
-
+import {useNavigate} from 'react-router-dom'
+import { nav } from "framer-motion/client";
 
 const Hero = () => {
+  const navigate = useNavigate()
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -57,10 +59,14 @@ const Hero = () => {
             className="flex flex-col md:flex-row justify-center gap-4"
             variants={itemVariants}
           >
-            <Button size="large">
+            <Button onClick={()=>{
+              navigate("/signup")
+            }} size="large">
               Get Started <ArrowRight color="#ffffff" size="20" />{" "}
             </Button>
-            <Button variant="withoutOutline" size="large">
+            <Button onClick={()=>{
+              navigate("/signup")
+            }} variant="withoutOutline" size="large">
               <span className="group flex items-center gap-1">
                 Check Symptoms{" "}
                 <CircleCheckBig size="20" className="group-hover:text-white" />
