@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import supabase from "../supabaseClient";
 import toast from "react-hot-toast";
 
@@ -6,6 +6,19 @@ const PaymentForm = ({ formData, doctor, onClose }) => {
   const [upiId, setUpiId] = useState("");
   const [screenshot, setScreenshot] = useState(null);
   const [uploading, setUploading] = useState(false);
+  const [userId, setUserId] = useState(null);
+
+  useEffect(() => {
+    const fetchUserId = async () => {
+      const { data: { user }, error } = await supabase.auth.getUser();
+      if (error) {
+        console.error("Error fetching user:", error.message);
+        return;
+      }
+      setUserId(user.id);
+    };
+    fetchUserId();
+  }, []);
 
   const handlePayment = () => {
     if (!upiId) {
@@ -22,6 +35,7 @@ const PaymentForm = ({ formData, doctor, onClose }) => {
   };
 
   const handleSubmit = async () => {
+    toast.loading("Submitting your appointment...");
     if (!screenshot) {
       alert("Please upload payment proof!");
       return;
@@ -48,26 +62,18 @@ const PaymentForm = ({ formData, doctor, onClose }) => {
     const paymentProofUrl = publicUrlData.publicUrl;
   
     // Save appointment details in Supabase Database
-    toast.loading("Submitting your appointment...");
     const { data, error } = await supabase
       .from("appointments")
       .insert([{ 
         ...formData, 
         doctorid: doctor.id, 
+        user_id: userId, // Link the appointment to the user
         upiId, 
         payment_proof_url: paymentProofUrl // Save file URL instead of file name
       }]);
 
     toast.dismiss(); // Dismiss the loading toast
 
-    if (error) {
-      console.error("Error saving appointment:", error.message);
-      toast.error("Failed to save appointment!");
-    } else {
-      toast.success("Appointment booked successfully!");
-      onClose();
-    }
-  
     if (error) {
       console.error("Error saving appointment:", error.message);
       toast.error("Failed to save appointment!");
