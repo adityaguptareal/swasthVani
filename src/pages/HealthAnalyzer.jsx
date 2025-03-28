@@ -14,7 +14,7 @@ function HealthAnalyzer() {
         "https://router.huggingface.co/hf-inference/models/Zabihin/Symptom_to_Diagnosis",
         {
           headers: {
-            Authorization: `Bearer ${import.meta.env.VITE_HUGGINGFACE_API_KEY}`,
+            Authorization: `Bearer ${import.meta.env.VITE_HUGGINGFACE}`,
             "Content-Type": "application/json",
           },
           method: "POST",
