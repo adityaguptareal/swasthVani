@@ -38,6 +38,9 @@ function HealthAnalyzer() {
     setError(null);
     setDiagnosis(null);
 
+    // Show loading toast
+    const toastId = toast.loading("Analyzing symptoms, please wait...");
+
     try {
       const response = await fetch(
         "https://router.huggingface.co/hf-inference/models/Zabihin/Symptom_to_Diagnosis",
@@ -69,8 +72,11 @@ function HealthAnalyzer() {
     } finally {
       setLoading(false);
       setStep(4);
+      toast.dismiss(toastId); // Dismiss the loading toast
     }
   };
+
+  
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-6">
