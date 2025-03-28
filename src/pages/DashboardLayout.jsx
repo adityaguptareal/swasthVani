@@ -46,13 +46,13 @@ const Dashboard = () => {
     getUser();
   }, []);
 
-  if (!user) return (<p className="text-center">Loading...</p>);
+  if (!user) return (<p className="text-center">Dashboard Loading...</p>);
 
   return (
     <div className="flex bg-background">
       <Sidebar />
       <main className="flex-1 p-4">
-        <div>Hello {userName || "user"}</div>
+        {/* <div className="flex justify-center items-center">Hello {userName || "user"}</div> */}
         <Outlet />
       </main>
     </div>
