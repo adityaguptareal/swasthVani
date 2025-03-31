@@ -3,7 +3,7 @@ import React from 'react'
 function AiSosAssistant() {
   return (
     <div>
-      Thi sis a SOS Assistant page
+      This is SOS Assistant page
     </div>
   )
 }
